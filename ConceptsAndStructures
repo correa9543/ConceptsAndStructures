@@ -1,0 +1,76 @@
+import javax.xml.transform.sax.SAXSource;
+import java.util.Scanner;
+
+
+public class ConceptsAndStructures {
+
+    private static Scanner input = new Scanner(System.in);
+//    private Language lang;
+
+    public static void main(String[] args) {
+
+        String userLang;
+        int choice;
+
+        System.out.println("--------------------------------------------------------------------------\n" +
+                             "--------------------------------------------------------------------------");
+        System.out.print("What language would you like? (English or Spanish)\nLanguage of choice: ");
+            userLang = input.nextLine();
+
+            if(userLang.equalsIgnoreCase("English")){
+                userLang = "english";
+            }
+
+            else if(userLang.equalsIgnoreCase("Spanish")){
+                userLang = "spanish";
+                try {
+
+                System.out.println("Changing language to Spanish...");
+
+                    Thread.sleep(3000);
+                }catch (InterruptedException e){
+                    System.out.println();
+                }
+            }
+            
+            else{
+                userLang = "english";
+                System.out.println("Invalid input! Using English as default language....");
+
+                try{
+                Thread.sleep(3000);
+                 }catch (InterruptedException e){
+                    System.out.println();
+                 }
+
+            }
+
+        Language lang = new Language(userLang);
+
+
+        System.out.println("--------------------------------------------------------------------------\n" +
+                           "--------------------------------------------------------------------------");
+
+
+        System.out.print(lang.getMenuPhrase(0) + lang.getMenuPhrase(1) + lang.getMenuPhrase(2)
+                        + lang.getMenuPhrase(3) + lang.getMenuPhrase(4));
+
+
+
+        choice = input.nextInt();
+
+        System.out.println("--------------------------------------------------------------------------\n" +
+                           "--------------------------------------------------------------------------");
+
+
+        switch (choice){
+           case 1: RecursionImplement.infoForSum(lang); break;
+           case 2: RecursionImplement.infoForFactorial(lang); break;
+           case 3: RecursionImplement.infoForFib(lang); break;
+
+        }
+
+    }
+
+
+}
