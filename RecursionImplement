@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+public class RecursionImplement {
+
+    private static Scanner input = new Scanner(System.in);
+    private Language lang;
+
+    public static void infoForFib(Language lang){
+        int numToDisplay;
+        int fibNUmber;
+
+        System.out.print(lang.getFibPhrases(0) + lang.getFibPhrases(1));
+
+        numToDisplay = input.nextInt();
+
+        fibNUmber = getFibNumber(numToDisplay);
+
+        System.out.println(lang.getFibPhrases(2) + numToDisplay + lang.getFibPhrases(3) + fibNUmber + ".");
+
+    }
+
+    public static int getFibNumber(int userNumber){
+        int fibNumber;
+
+        if(userNumber == 1 || userNumber == 2){
+            fibNumber = 1;
+        }
+
+        else{
+            fibNumber = getFibNumber(userNumber - 1) + getFibNumber(userNumber - 2);
+        }
+
+        return fibNumber;
+    }
+
+    public static int recursionSum(int numberToSum){
+        int totalSum = 0;
+
+        //base case
+        if (numberToSum == 0) {
+            totalSum = 0;
+        }
+
+        else{
+            totalSum +=  numberToSum + recursionSum(numberToSum-1);
+        }
+
+        return totalSum;
+    }
+
+    public static void infoForFactorial(Language lang){
+        int userNumber;
+        int finalProduct;
+
+        System.out.println(lang.getFactPhrases(0));
+        userNumber = input.nextInt();
+        finalProduct =  recursionFactorial(userNumber);
+        System.out.println(userNumber + "!" + lang.getFactPhrases(1) + finalProduct + ".");
+
+    }
+
+    public static int recursionFactorial(int factorial){
+        int result = 0;
+
+        if(factorial == 0){
+            result = 1;
+        }
+
+        else{
+
+            result = factorial * recursionFactorial(factorial-1);
+        }
+        return result;
+    }
+
+    public static void infoForSum(Language lang){
+
+        int userNumber;
+        int totalSum;
+
+        System.out.print(lang.getSumPhrases(0));
+        System.out.print(lang.getSumPhrases(1));
+        userNumber = input.nextInt();
+        totalSum = recursionSum(userNumber);
+        System.out.println(lang.getSumPhrases(2) + userNumber + lang.getSumPhrases(3) + totalSum + ".");
+
+    }
+}
