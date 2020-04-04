@@ -1,0 +1,67 @@
+import java.util.Enumeration;
+
+public class LinkedBag<T> implements BagInterface<T> {
+
+    private Node firstNode;
+    private int numOfEntries;
+
+    public LinkedBag(){
+        firstNode = null;
+        numOfEntries = 0;
+    }
+
+    @Override
+    public boolean isEmpty(){
+        return (numOfEntries == 0);
+    }
+
+    @Override
+    public T remove(){
+        Node current = firstNode.next;
+        T data = firstNode.data;
+        firstNode.next = null;
+        firstNode = current;
+
+        return data;
+    }
+
+    @Override
+    public boolean remove(T anEntry){
+        Node current = firstNode;
+
+        if(firstNode.data == anEntry){
+            remove();
+            numOfEntries--;
+        }
+
+        else{
+            while(current.data != anEntry){
+                current = current.next;
+            }
+
+            current.data = firstNode.data;
+            remove();
+            numOfEntries--;
+        }
+
+        return true;
+    }
+
+    //Finish overriding the methods 
+
+
+    private  class Node{
+        T data;
+        Node next;
+
+        public Node(T data){
+            this(data, null);
+        }
+
+        public  Node(T data, Node next){
+            this.data = data;
+            this.next = next;
+        }
+
+    }
+}
