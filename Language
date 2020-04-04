@@ -1,0 +1,79 @@
+import javax.crypto.AEADBadTagException;
+import java.util.ArrayList;
+
+public class Language {
+
+    private ArrayList<String> menuPhrases;
+    private ArrayList<String> sumPhrases;
+    private ArrayList<String> factPhrases;
+    private ArrayList<String> fibPhrases;
+
+    Language(){
+    }
+
+    Language(String lang){
+
+        menuPhrases = new ArrayList<String>();
+        sumPhrases = new ArrayList<String>();
+        factPhrases = new ArrayList<String>();
+        fibPhrases = new ArrayList<String>();
+
+
+        switch(lang){
+            case "spanish":
+                menuPhrases.add("¿Qué implementación de recursividad te gustaría ver?\n");
+                menuPhrases.add("1) Suma de números (Agrega la suma de 0 al número de su elección)\n");
+                menuPhrases.add("2) Factoriales\n");
+                menuPhrases.add("3) Número de Fiboncacci (muestra el enésimo número en la secuencia de Fibonacci)\n");
+                menuPhrases.add("Ingrese el número correspondiente: ");
+                sumPhrases.add("¿Hasta qué número te gustaría sumar?\n");
+                sumPhrases.add("Numero para sumar: ");
+                sumPhrases.add("La suma de 0 a ");
+                //sumPhrases.add("a ");
+                sumPhrases.add(" es ");
+                factPhrases.add("¿De qué número te gustaría el factorial?\n");
+                factPhrases.add(" es igual a ");
+                fibPhrases.add("¿Qué número de Fibonacci te gustaría mostrar?\n");
+                fibPhrases.add("Número para mostrar: ");
+                fibPhrases.add("El ");
+                fibPhrases.add(" número en la secuencia de Fibonacci es ");
+                break;
+
+            case "english": {
+                menuPhrases.add("What recursion implementation would you like to see?\n");
+                menuPhrases.add("1) Summing Numbers (Adds sum from 0 to number of your choice)\n");
+                menuPhrases.add("2) Factorials\n");
+                menuPhrases.add("3) Fiboncacci Number (Displays the nth number in the Fibonacci sequence)\n");
+                menuPhrases.add("Enter corresponding number: ");
+                sumPhrases.add("Up to what number would you like to sum?\n");
+                sumPhrases.add("Number to sum up to: ");
+                sumPhrases.add("The sum from 0 to ");
+                //sumPhrases.add("to ");
+                sumPhrases.add("is ");
+                factPhrases.add("What number would you like the factorial of?\n");
+                factPhrases.add("is equal to ");
+                fibPhrases.add("What Fibonacci number would you like to display?\n");
+                fibPhrases.add("Number to display: ");
+                fibPhrases.add("The ");
+                fibPhrases.add("number in the Fibonacci sequence is ");
+            }
+        }
+
+    }
+
+    public String getMenuPhrase(int i){
+        return menuPhrases.get(i);
+    }
+
+    public String getSumPhrases(int i){
+       return sumPhrases.get(i);
+    }
+
+    public String getFactPhrases(int i){
+        return factPhrases.get(i);
+    }
+
+    public String getFibPhrases(int i){
+        return fibPhrases.get(i);
+    }
+}
